@@ -14,6 +14,7 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(async () => {
+    console.log("~ by ucuphis ~")
     setLoading(true)
     let { data } = await axios({
       method: "get",
@@ -26,9 +27,9 @@ function App() {
       .filter(entry => !entry.includes("-"))
       .map(entry => entry.slice(35))
       .filter(entry => entry.length == 5)
-    console.log("data")
-    console.log(entries.length, entries[0])
-    console.log("data")
+    // console.log("data")
+    // console.log(entries.length, entries[0])
+    // console.log("data")
     setKamus(entries)
     setLoading(false)
   }, [])
@@ -50,7 +51,7 @@ function App() {
     if(eksak) {
       eksak.split("").forEach((item, idx) => {
         if(item != "*") kamus = kamus.filter(item2 => item2[idx] == item.toLowerCase())
-        console.log(kamus.length)
+        // console.log(kamus.length)
       })
     }
   } else {
@@ -78,7 +79,7 @@ function App() {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="awalan"
               type="text"
-              placeholder="MAK"
+              placeholder="MAKan"
               onChange={e => setAwalan(e.target.value)}
               onSubmit={submitHandler}
             />
@@ -91,7 +92,7 @@ function App() {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="akhiran"
               type="text"
-              placeholder="KAN"
+              placeholder="maKAN"
               onChange={e => setAkhiran(e.target.value)}
               onSubmit={submitHandler}
             />
