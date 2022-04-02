@@ -64,7 +64,8 @@ function Form({
     let abjad = "abcdefghijklmnopqrstuvwxyz"
     for (let key in obj) {
       let isAbjad = abjad.includes(obj[key].toLowerCase())
-      arr.push(isAbjad ? obj[key] : "*")
+      // console.log({ letter: obj[key], isAbjad })
+      arr.push(isAbjad && obj[key] !== "" ? obj[key] : "*")
     }
     return arr.join("")
   }
@@ -106,12 +107,13 @@ function Form({
     }
     setkamus(clone)
     navigate("/result")
-    console.log({
-      input: convertInput(input),
-      right,
-      wrong,
-      kamus: clone
-    })
+    // console.log({
+    //   input,
+    //   convertedInput: convertInput(input),
+    //   right,
+    //   wrong,
+    //   kamus: clone
+    // })
   }
 
 

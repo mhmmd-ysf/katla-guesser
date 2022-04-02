@@ -5,7 +5,7 @@ const initialState = {
 
 export function reducer(state = initialState, action) {
   // console.count("masuk")
-  console.log("masuk reducer", action.type)
+  // console.log("masuk reducer", action.type)
   // console.log(action?.payload?.length)
   switch(action.type) {
     case 'SET_KBBI': {

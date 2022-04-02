@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 function Result({
   kamus,
   }) {
-    console.log({ kamus, dari: "result" })
+    // console.log({ kamus, dari: "result" })
   return (
     <div>
       {
