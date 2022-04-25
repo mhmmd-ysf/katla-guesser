@@ -12,7 +12,9 @@ function App({
 }) {
   let [kamus, setKamus] = useState([])
   // console.log({ kamus, dari: "app" })
-  console.log("============== By ucuphis ==============")
+  useEffect(() => {
+    console.log("============== By ucuphis ==============")
+  }, [fetchKBBI])
   useEffect(() => {
     fetchKBBI()
     return () => {}

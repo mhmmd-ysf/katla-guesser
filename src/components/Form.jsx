@@ -75,7 +75,7 @@ function Form({
   }
 
   function notContain(str, letters) {
-    return letters.every(letter => str.indexOf(letter) < 0);
+    return letters.every(letter => str.toLowerCase().indexOf(letter.toLowerCase()) < 0);
   }
 
   function submitHandler(e) {
@@ -90,7 +90,7 @@ function Form({
         clone = kbbi.filter(item => notContain(item, wrong.toLowerCase().split("")))
       }
       if (right) {
-        clone = (kbbi.filter(item => contains(item, right.toLowerCase().split(""))))
+        clone = (clone.filter(item => contains(item, right.toLowerCase().split(""))))
       }
       if(eksak) {
         eksak.split("").forEach((char, idx) => {
@@ -107,13 +107,13 @@ function Form({
     }
     setkamus(clone)
     navigate("/result")
-    // console.log({
-    //   input,
-    //   convertedInput: convertInput(input),
-    //   right,
-    //   wrong,
-    //   kamus: clone
-    // })
+    console.log({
+      input,
+      convertedInput: convertInput(input),
+      right,
+      wrong,
+      kamus: clone
+    })
   }
 
 
@@ -133,8 +133,8 @@ function Form({
                 id="tersedia"
                 type="text"
                 placeholder="MKN"
-                // value={right.toUpperCase()}
-                onChange={e => setRight(e.target.value)}
+                value={right.toUpperCase()}
+                onChange={e => setRight(e.target.value.toUpperCase())}
                 onSubmit={submitHandler}
               />
             </div>
@@ -149,8 +149,8 @@ function Form({
               id="tmengandung"
               type="text"
               placeholder="RST"
-              // value={wrong.toUpperCase()}
-              onChange={e => setWrong(e.target.value)}
+              value={wrong.toUpperCase()}
+              onChange={e => setWrong(e.target.value.toUpperCase())}
               onSubmit={submitHandler}
             />
           </div>
