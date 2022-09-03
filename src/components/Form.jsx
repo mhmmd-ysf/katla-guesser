@@ -107,13 +107,7 @@ function Form({
     }
     setkamus(clone)
     navigate("/result")
-    console.log({
-      input,
-      convertedInput: convertInput(input),
-      right,
-      wrong,
-      kamus: clone
-    })
+    // console.log({ input: convertInput(input), right, wrong, kamus: clone })
   }
 
 
