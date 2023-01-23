@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 
@@ -15,15 +15,6 @@ function Form({
   setKeepHints,
 }) {
   const navigate = useNavigate();
-  // const [input, setInput] = useState({
-  //   "input-1": "",
-  //   "input-2": "",
-  //   "input-3": "",
-  //   "input-4": "",
-  //   "input-5": "",
-  // });
-  // const [right, setRight] = useState('')
-  // const [wrong, setWrong] = useState('')
 
   let classes = [
     "appearance-none",

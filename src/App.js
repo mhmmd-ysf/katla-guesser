@@ -85,7 +85,4 @@ const mapDispatchToProps = {
   fetchKBBI
 }
 
-const tes = {
-}
-
 export default connect(mapStateToProps, mapDispatchToProps)(App);
