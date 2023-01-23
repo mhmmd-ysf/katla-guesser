@@ -4,18 +4,26 @@ import { useNavigate } from "react-router-dom";
 
 function Form({
   kbbi,
-  setkamus
+  setkamus,
+  input,
+  setInput,
+  right,
+  setRight,
+  wrong,
+  setWrong,
+  keepHints,
+  setKeepHints,
 }) {
   const navigate = useNavigate();
-  const [input, setInput] = useState({
-    "input-1": "",
-    "input-2": "",
-    "input-3": "",
-    "input-4": "",
-    "input-5": "",
-  });
-  const [right, setRight] = useState('')
-  const [wrong, setWrong] = useState('')
+  // const [input, setInput] = useState({
+  //   "input-1": "",
+  //   "input-2": "",
+  //   "input-3": "",
+  //   "input-4": "",
+  //   "input-5": "",
+  // });
+  // const [right, setRight] = useState('')
+  // const [wrong, setWrong] = useState('')
 
   let classes = [
     "appearance-none",
@@ -158,6 +166,11 @@ function Form({
               <input name="input-3" value={input["input-3"]} maxLength={1} onChange={handleChange} className={classes.join(" ")} />
               <input name="input-4" value={input["input-4"]} maxLength={1} onChange={handleChange} className={classes.join(" ")} />
               <input name="input-5" value={input["input-5"]} maxLength={1} onChange={handleChange} className={classes.join(" ") + " rounded-r-md"} />
+            </div>
+
+            <div className="space-x-3">
+              <input type="checkbox" name="keep" checked={keepHints} onChange={ e => setKeepHints(!keepHints)}/>
+              <label htmlFor="keep">Keep hints</label>
             </div>
 
             <div

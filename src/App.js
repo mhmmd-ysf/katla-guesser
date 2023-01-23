@@ -11,6 +11,33 @@ function App({
   fetchKBBI,
 }) {
   let [kamus, setKamus] = useState([])
+  
+  const [input, setInput] = useState({
+    "input-1": "",
+    "input-2": "",
+    "input-3": "",
+    "input-4": "",
+    "input-5": "",
+  });
+  const [right, setRight] = useState('')
+  const [wrong, setWrong] = useState('')
+  const [keepHints, setKeepHints] = useState(true)
+
+  function clear() {
+    if (!keepHints) {
+      setInput({
+        "input-1": "",
+        "input-2": "",
+        "input-3": "",
+        "input-4": "",
+        "input-5": "",
+      })
+      setRight("")
+      setWrong("")
+    }
+  }
+
+
   // console.log({ kamus, dari: "app" })
   useEffect(() => {
     console.log("============== By ucuphis ==============")
@@ -28,8 +55,20 @@ function App({
         </Link>
       </h1>
       <Routes>
-        <Route path="/" element={<Form setkamus={setKamus} />} />
-        <Route path="/result" element={<Result kamus={kamus}/>} />
+        <Route path="/" element={
+          <Form
+            setkamus={setKamus}
+            input={input}
+            setInput={setInput}
+            right={right}
+            setRight={setRight}
+            wrong={wrong}
+            setWrong={setWrong}
+            keepHints={keepHints}
+            setKeepHints={setKeepHints}
+          />
+        } />
+        <Route path="/result" element={<Result kamus={kamus} clear={clear}/>} />
       </Routes>
     </div>
   );
@@ -44,6 +83,9 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   fetchKBBI
+}
+
+const tes = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

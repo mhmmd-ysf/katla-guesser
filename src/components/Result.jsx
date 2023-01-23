@@ -1,12 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { useNavigate, Link } from "react-router-dom";
 
 function Result({
   kamus,
+  clear,
   }) {
+  const navigate = useNavigate()
+  function back () {
+    clear()
+    navigate("/")
+  }
     // console.log({ kamus, dari: "result" })
   return (
     <div>
+      {/* <Link className="my-2 text-blue-800" to={"/"}>← Back</Link> */}
+      <p className="my-2 text-blue-800" onClick={_ => back()}>← Back</p>
       {
         // loading ?
         //   <div className="p-2 animate-pulse">
