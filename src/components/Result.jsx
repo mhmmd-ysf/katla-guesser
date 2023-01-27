@@ -15,7 +15,7 @@ function Result({
   return (
     <div>
       {/* <Link className="my-2 text-blue-800" to={"/"}>← Back</Link> */}
-      <p className="my-2 text-blue-800" onClick={_ => back()}>← Back</p>
+      <p className="my-2 text-blue-800 cursor-pointer" onClick={_ => back()}>← Back</p>
       {
         // loading ?
         //   <div className="p-2 animate-pulse">
